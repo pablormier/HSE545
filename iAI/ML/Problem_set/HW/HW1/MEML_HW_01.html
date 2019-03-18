@@ -13089,7 +13089,7 @@ div#notebook {
 
 <!-- Loading mathjax macro -->
 <!-- Load mathjax -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS_HTML"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS_HTML"></script>
     <!-- MathJax configuration -->
     <script type="text/x-mathjax-config">
     MathJax.Hub.Config({
@@ -13218,7 +13218,7 @@ How many suboptimal points exist? Why?</p>
 <div class="text_cell_render border-box-sizing rendered_html">
 <h1 id="Problem-7">Problem 7<a class="anchor-link" href="#Problem-7">&#182;</a></h1><p>In this homework, we want to demonstrate an image panorama as an example of linear regression. A panorama is any wide-angle view or representation of a physical space.</p>
 <p><br>
-&lt;img src="./image_files/Panorama_of_the_courtyard_of_the_Great_Mosque_of_Kairouan.jpg" width = 500&gt;
+<img src="./image_files/Panorama_of_the_courtyard_of_the_Great_Mosque_of_Kairouan.jpg" width = 500>
 <br></p>
 
 </div>
@@ -13238,14 +13238,14 @@ How many suboptimal points exist? Why?</p>
 <li>idea: projecting images onto a common plane</li>
 </ul>
 <p><br>
-&lt;img src="./image_files/mosaic.png" width = 500&gt;</p>
+<img src="./image_files/mosaic.png" width = 500></p>
 <p><br>
-&lt;img src="./image_files/panorama_reference.png" width = 400&gt;</p>
+<img src="./image_files/panorama_reference.png" width = 400></p>
 <ul>
 <li>Camera rotating about its center</li>
 </ul>
 <p><br>
-&lt;img src="./image_files/Hx.png" width = 500&gt;</p>
+<img src="./image_files/Hx.png" width = 500></p>
 <ul>
 <li><p>Two image planes are related by a homography $H$</p>
 <p>Do not worry about a homography transformation. (out of this course's scope)</p>
@@ -13267,7 +13267,7 @@ g &amp; h &amp; 1
 x\\y\\1
 \end{bmatrix}            
 $$<p><br></p>
-<p>&lt;img src="./image_files/projective_transformed.png" width = 500&gt;</p>
+<p><img src="./image_files/projective_transformed.png" width = 500></p>
 <p><br></p>
 <ul>
 <li>For the advanced learner, watch the following online lecture by Prof. Aaron Bobick</li>
@@ -13281,9 +13281,9 @@ $$<p><br></p>
 <div class="prompt input_prompt">In&nbsp;[1]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%</span><span class="k">html</span>
-&lt;center&gt;&lt;iframe src=&quot;https://www.youtube.com/embed/pU4NorC7lb0?rel=0&quot; 
-width=&quot;560&quot; height=&quot;315&quot; frameborder=&quot;0&quot; allowfullscreen&gt;&lt;/iframe&gt;&lt;/center&gt;
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%html</span>
+<span class="p">&lt;</span><span class="nt">center</span><span class="p">&gt;&lt;</span><span class="nt">iframe</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;https://www.youtube.com/embed/pU4NorC7lb0?rel=0&quot;</span> 
+<span class="na">width</span><span class="o">=</span><span class="s">&quot;560&quot;</span> <span class="na">height</span><span class="o">=</span><span class="s">&quot;315&quot;</span> <span class="na">frameborder</span><span class="o">=</span><span class="s">&quot;0&quot;</span> <span class="na">allowfullscreen</span><span class="p">&gt;&lt;/</span><span class="nt">iframe</span><span class="p">&gt;&lt;/</span><span class="nt">center</span><span class="p">&gt;</span>
 </pre></div>
 
     </div>
@@ -13328,7 +13328,7 @@ width="560" height="315" frameborder="0" allowfullscreen></iframe></center>
 </li>
 </ul>
 <p><br>
-&lt;img src="./image_files/three_images.png" width = 900&gt;</p>
+<img src="./image_files/three_images.png" width = 900></p>
 
 </div>
 </div>
@@ -13422,7 +13422,7 @@ y\\
 1 
 \end{bmatrix}$$<p><br>
 <font color='red'>Show the following equations from the above homography $H$</font></p>
-<p><br>
+<p><br><br>
 $$ 
 \begin{align*}
 x' &amp;= \frac{\theta_1 x+\theta_2 y+\theta_3}{\theta_7 x+\theta_8 y+1} \\
@@ -13540,8 +13540,8 @@ $$ \min\limits_{\theta} \lVert \Phi\theta - b \rVert _2^2 $$$$ \theta^* = (\Phi^
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="5)-Image-warping">5) Image warping<a class="anchor-link" href="#5)-Image-warping">&#182;</a></h2><ul>
-<li>Apply image warping on image ! &amp; image 3 using <code>cv2.warpPerspective</code> function<ul>
-<li>Do not worry about the image warping(outside lecture's scope)   </li>
+<li>Apply image warping on image 1 &amp; image 3 using <code>cv2.warpPerspective</code> function<ul>
+<li>Do not worry about the image warping (outside lecture's scope)   </li>
 </ul>
 </li>
 </ul>

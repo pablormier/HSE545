@@ -13089,7 +13089,7 @@ div#notebook {
 
 <!-- Loading mathjax macro -->
 <!-- Load mathjax -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS_HTML"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS_HTML"></script>
     <!-- MathJax configuration -->
     <script type="text/x-mathjax-config">
     MathJax.Hub.Config({
@@ -13225,9 +13225,10 @@ $$</p>
 <center><img src="./image_files/latent2x.png" width = 400></center>
 <br>
 
+
 - An example of a generator network which encodes a univariate distribution with two different modes
 
-<br>
+<br><br>
 <center><img src="./image_files/density_transformation.png" width = 500></center><ul>
 <li>Generative model of high dimensional space</li>
 </ul>
@@ -13268,16 +13269,18 @@ $$</p>
 <br>
 
 <br>
-<center><img src="./image_files/my_GAN.png" width = 500></center>
-<br>
-
-
-- The idea behind Generative Adversarial Networks (GANs): train two different networks
-<center><img src="./image_files/intuitionGAN_01.png" width = 700></center>        
-    - Discriminator network: try to distinguish between real and fake data
-<center><img src="./image_files/intuitionGAN_02.png" width = 700></center>
-<center><img src="./image_files/intuitionGAN_03.png" width = 700></center><br>
-    - Generator network: try to produce realistic-looking samples to fool the discriminator network
+<center><img src="./image_files/my_GAN.png" width = 500></center><ul>
+<li>The idea behind Generative Adversarial Networks (GANs): train two different networks</li>
+</ul>
+<p><br></p>
+<center><img src="./image_files/intuitionGAN_01.png" width = 700></center><ul>
+<li>Discriminator network: try to distinguish between real and fake data</li>
+</ul>
+<p><br></p>
+<center><img src="./image_files/intuitionGAN_02.png" width = 700></center><center><img src="./image_files/intuitionGAN_03.png" width = 700></center><ul>
+<li>Generator network: try to produce realistic-looking samples to fool the discriminator network</li>
+</ul>
+<p><br></p>
 <center><img src="./image_files/intuitionGAN_04.png" width = 700></center><h2 id="3.2.-Objective-Function-of-GAN">3.2. Objective Function of GAN<a class="anchor-link" href="#3.2.-Objective-Function-of-GAN">&#182;</a></h2><ul>
 <li>Think about a logistic regression classifier (or cross entropy loss $(h(x),y)$)</li>
 </ul>
@@ -13311,12 +13314,19 @@ $$\text{loss} = -y \log h(x) - (1-y) \log (1-h(x))$$</p>
 </ul>
 <center><img src="./image_files/nonsaturatinggame02.png" width = 800></center><h2 id="3.3.-Soving-a-MinMax-Problem">3.3. Soving a MinMax Problem<a class="anchor-link" href="#3.3.-Soving-a-MinMax-Problem">&#182;</a></h2><p><br>
 Step 1: Fix $G$ and perform a gradient step to</p>
+<p><br></p>
 $$\max_{D} E_{x \sim p_{\text{data}}(x)}\left[\log D(x)\right]  + E_{x \sim p_{z}(z)}\left[\log (1-D(G(z)))\right]$$<p>Step 2: Fix $D$ and perform a gradient step to</p>
-$$\max_{G} E_{x \sim p_{z}(z)}\left[\log D(G(z))\right]$$<p>OR</p>
+<p><br>
+$$\max_{G} E_{x \sim p_{z}(z)}\left[\log D(G(z))\right]$$</p>
+<p>OR</p>
 <p><br><br>
 Step 1: Fix $G$ and perform a gradient step to</p>
-$$\min_{D} E_{x \sim p_{\text{data}}(x)}\left[-\log D(x)\right]  + E_{x \sim p_{z}(z)}\left[-\log (1-D(G(z)))\right]$$<p>Step 2: Fix $D$ and perform a gradient step to</p>
-$$\min_{G} E_{x \sim p_{z}(z)}\left[-\log D(G(z))\right]$$<h2 id="3.4.-After-Training">3.4. After Training<a class="anchor-link" href="#3.4.-After-Training">&#182;</a></h2><ul>
+<p><br>
+$$\min_{D} E_{x \sim p_{\text{data}}(x)}\left[-\log D(x)\right]  + E_{x \sim p_{z}(z)}\left[-\log (1-D(G(z)))\right]$$</p>
+<p>Step 2: Fix $D$ and perform a gradient step to</p>
+<p><br>
+$$\min_{G} E_{x \sim p_{z}(z)}\left[-\log D(G(z))\right]$$</p>
+<h2 id="3.4.-After-Training">3.4. After Training<a class="anchor-link" href="#3.4.-After-Training">&#182;</a></h2><ul>
 <li>After training, use the generator network to generate new data</li>
 </ul>
 <p><center><img src="./image_files/GAN_done.png" width = 600></center>
@@ -13939,9 +13949,9 @@ $$\min_{G} E_{x \sim p_{z}(z)}\left[-\log D(G(z))\right]$$
 <div class="prompt input_prompt">In&nbsp;[13]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%</span><span class="k">html</span>
-&lt;center&gt;&lt;iframe src=&quot;https://www.youtube.com/embed/9JpdAg6uMXs?rel=0&quot; 
-width=&quot;560&quot; height=&quot;315&quot; frameborder=&quot;0&quot; allowfullscreen&gt;&lt;/iframe&gt;&lt;/center&gt;
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%html</span>
+<span class="p">&lt;</span><span class="nt">center</span><span class="p">&gt;&lt;</span><span class="nt">iframe</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;https://www.youtube.com/embed/9JpdAg6uMXs?rel=0&quot;</span> 
+<span class="na">width</span><span class="o">=</span><span class="s">&quot;560&quot;</span> <span class="na">height</span><span class="o">=</span><span class="s">&quot;315&quot;</span> <span class="na">frameborder</span><span class="o">=</span><span class="s">&quot;0&quot;</span> <span class="na">allowfullscreen</span><span class="p">&gt;&lt;/</span><span class="nt">iframe</span><span class="p">&gt;&lt;/</span><span class="nt">center</span><span class="p">&gt;</span>
 </pre></div>
 
     </div>
@@ -13989,9 +13999,9 @@ width="560" height="315" frameborder="0" allowfullscreen></iframe></center>
 <div class="prompt input_prompt">In&nbsp;[14]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%</span><span class="k">html</span>
-&lt;center&gt;&lt;iframe src=&quot;https://www.youtube.com/embed/5WoItGTWV54?rel=0&quot; 
-width=&quot;560&quot; height=&quot;315&quot; frameborder=&quot;0&quot; allowfullscreen&gt;&lt;/iframe&gt;&lt;/center&gt;
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%html</span>
+<span class="p">&lt;</span><span class="nt">center</span><span class="p">&gt;&lt;</span><span class="nt">iframe</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;https://www.youtube.com/embed/5WoItGTWV54?rel=0&quot;</span> 
+<span class="na">width</span><span class="o">=</span><span class="s">&quot;560&quot;</span> <span class="na">height</span><span class="o">=</span><span class="s">&quot;315&quot;</span> <span class="na">frameborder</span><span class="o">=</span><span class="s">&quot;0&quot;</span> <span class="na">allowfullscreen</span><span class="p">&gt;&lt;/</span><span class="nt">iframe</span><span class="p">&gt;&lt;/</span><span class="nt">center</span><span class="p">&gt;</span>
 </pre></div>
 
     </div>
@@ -14032,9 +14042,9 @@ width="560" height="315" frameborder="0" allowfullscreen></iframe></center>
 <div class="prompt input_prompt">In&nbsp;[15]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%</span><span class="k">html</span>
-&lt;center&gt;&lt;iframe src=&quot;https://www.youtube.com/embed/JVb54xhEw6Y?rel=0&quot; 
-width=&quot;560&quot; height=&quot;315&quot; frameborder=&quot;0&quot; allowfullscreen&gt;&lt;/iframe&gt;&lt;/center&gt;
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%html</span>
+<span class="p">&lt;</span><span class="nt">center</span><span class="p">&gt;&lt;</span><span class="nt">iframe</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;https://www.youtube.com/embed/JVb54xhEw6Y?rel=0&quot;</span> 
+<span class="na">width</span><span class="o">=</span><span class="s">&quot;560&quot;</span> <span class="na">height</span><span class="o">=</span><span class="s">&quot;315&quot;</span> <span class="na">frameborder</span><span class="o">=</span><span class="s">&quot;0&quot;</span> <span class="na">allowfullscreen</span><span class="p">&gt;&lt;/</span><span class="nt">iframe</span><span class="p">&gt;&lt;/</span><span class="nt">center</span><span class="p">&gt;</span>
 </pre></div>
 
     </div>
@@ -14075,9 +14085,9 @@ width="560" height="315" frameborder="0" allowfullscreen></iframe></center>
 <div class="prompt input_prompt">In&nbsp;[16]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%</span><span class="k">html</span>
-&lt;center&gt;&lt;iframe src=&quot;https://www.youtube.com/embed/7G4_Y5rsvi8?rel=0&quot; 
-width=&quot;560&quot; height=&quot;315&quot; frameborder=&quot;0&quot; allowfullscreen&gt;&lt;/iframe&gt;&lt;/center&gt;
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%html</span>
+<span class="p">&lt;</span><span class="nt">center</span><span class="p">&gt;&lt;</span><span class="nt">iframe</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;https://www.youtube.com/embed/7G4_Y5rsvi8?rel=0&quot;</span> 
+<span class="na">width</span><span class="o">=</span><span class="s">&quot;560&quot;</span> <span class="na">height</span><span class="o">=</span><span class="s">&quot;315&quot;</span> <span class="na">frameborder</span><span class="o">=</span><span class="s">&quot;0&quot;</span> <span class="na">allowfullscreen</span><span class="p">&gt;&lt;/</span><span class="nt">iframe</span><span class="p">&gt;&lt;/</span><span class="nt">center</span><span class="p">&gt;</span>
 </pre></div>
 
     </div>
@@ -14125,9 +14135,9 @@ width="560" height="315" frameborder="0" allowfullscreen></iframe></center>
 <div class="prompt input_prompt">In&nbsp;[17]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%</span><span class="k">html</span>
-&lt;center&gt;&lt;iframe src=&quot;https://www.youtube.com/embed/odpjk7_tGY0?rel=0&quot; 
-width=&quot;560&quot; height=&quot;315&quot; frameborder=&quot;0&quot; allowfullscreen&gt;&lt;/iframe&gt;&lt;/center&gt;
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%html</span>
+<span class="p">&lt;</span><span class="nt">center</span><span class="p">&gt;&lt;</span><span class="nt">iframe</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;https://www.youtube.com/embed/odpjk7_tGY0?rel=0&quot;</span> 
+<span class="na">width</span><span class="o">=</span><span class="s">&quot;560&quot;</span> <span class="na">height</span><span class="o">=</span><span class="s">&quot;315&quot;</span> <span class="na">frameborder</span><span class="o">=</span><span class="s">&quot;0&quot;</span> <span class="na">allowfullscreen</span><span class="p">&gt;&lt;/</span><span class="nt">iframe</span><span class="p">&gt;&lt;/</span><span class="nt">center</span><span class="p">&gt;</span>
 </pre></div>
 
     </div>
@@ -14180,10 +14190,10 @@ width="560" height="315" frameborder="0" allowfullscreen></iframe></center>
 
 
 
-<div id="92758948-158c-4316-a9d2-b6f259a98472"></div>
+<div id="8686d9b8-5f5a-4bb1-bbcd-9827a1a2c729"></div>
 <div class="output_subarea output_javascript ">
 <script type="text/javascript">
-var element = $('#92758948-158c-4316-a9d2-b6f259a98472');
+var element = $('#8686d9b8-5f5a-4bb1-bbcd-9827a1a2c729');
 $.getScript('https://kmahelona.github.io/ipython_notebook_goodies/ipython_notebook_toc.js')
 </script>
 </div>

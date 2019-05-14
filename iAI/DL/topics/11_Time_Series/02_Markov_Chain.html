@@ -13160,18 +13160,22 @@ $$p(q_0,q_1,\cdots,q_T ) = p(q_0) \; p(q_1 \mid q_0) \; p( q_2 \mid q_1 ) \; p( 
 <center>Possible and tractable !!</center><h2 id="1.2.-Markov-Process">1.2. Markov Process<a class="anchor-link" href="#1.2.-Markov-Process">&#182;</a></h2><ul>
 <li>(Assumption) for a Markov process, the next state depends only on the current state:</li>
 </ul>
+<p><br></p>
 $$ p(q_{t+1} \mid q_t,\cdots,q_0)  = p(q_{t+1} \mid q_t)$$<ul>
 <li>More clearly</li>
 </ul>
-$$ p(q_{t+1} = s_j \mid q_t = s_i)  = p(q_{t+1} = s_j \mid q_t = s_i,\; \text{any earlier history})$$<ul>
+<p><br></p>
+$$ p(q_{t+1} = s_j \mid q_t = s_i)  = p(q_{t+1} = s_j \mid q_t = s_i,\; \text{any earlier history})$$<p><br></p>
+<ul>
 <li>Given current state, the past does not matter</li>
 <li>The state captures all relevant information from the history</li>
 <li>The state is a sufficient statistic of the future</li>
 </ul>
 <h3 id="1.2.1.-State-Transition-Matrix">1.2.1. State Transition Matrix<a class="anchor-link" href="#1.2.1.-State-Transition-Matrix">&#182;</a></h3><p>For a Markov state 𝑠 and successor state 𝑠′, the state transition probability is defined by</p>
-$$ P_{ss'} = P\left[S_{t+1} = s' \mid S_t = s \right] $$<p>State transition matrix $P$ defines transition probabilities from all states $s$ to all successor states $s'$.</p>
-<p>&lt;img src = "./image_files/transitionmatrix.png" width = 250&gt;</p>
-<ul>
+<p><br></p>
+$$ P_{ss'} = P\left[S_{t+1} = s' \mid S_t = s \right] $$<p><br></p>
+<p>State transition matrix $P$ defines transition probabilities from all states $s$ to all successor states $s'$.</p>
+<center><img src = "./image_files/transitionmatrix.png" width = 250></center><ul>
 <li>Sum of the elements on each row yields 1</li>
 </ul>
 $$\sum_{j \in S}p_{ij} = 1$$<ul>
@@ -13184,8 +13188,7 @@ $$\sum_{j \in S}p_{ij} = 1$$<ul>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>&lt;img src = "./image_files/chain_example.png" width = 600&gt;</p>
-
+<center><img src="./image_files/chain_example.png" width = 600></center>
 </div>
 </div>
 </div>
@@ -13283,7 +13286,7 @@ $$\sum_{j \in S}p_{ij} = 1$$<ul>
 <span class="n">S</span> <span class="o">=</span> <span class="p">[]</span>
 <span class="n">S</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>    
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">50</span><span class="p">):</span>    
     <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">p</span> <span class="o">=</span> <span class="n">P</span><span class="p">[</span><span class="n">x</span><span class="p">][:])[</span><span class="mi">0</span><span class="p">]</span>    
     <span class="n">S</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
      
@@ -13304,7 +13307,7 @@ $$\sum_{j \in S}p_{ij} = 1$$<ul>
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>[0, 2, 1, 1, 1, 0]
+<pre>[0, 2, 1, 1, 1, 1, 1, 1, 0, 2, 1, 0, 2, 1, 1, 1, 1, 1, 0, 2, 1, 0, 2, 1, 0, 2, 0, 2, 1, 1, 1, 0, 2, 0, 2, 1, 0, 2, 1, 0, 2, 1, 1, 0, 2, 1, 0, 2, 0, 2, 1]
 </pre>
 </div>
 </div>
@@ -13321,8 +13324,7 @@ $$\sum_{j \in S}p_{ij} = 1$$<ul>
 <p>3) an initial state probability distribution, $\pi = \{ \pi_i\}$</p>
 <p>It represents passive stochastic behavior</p>
 <h3 id="1.2.3.-Example-of-Markov-Chain">1.2.3. Example of Markov Chain<a class="anchor-link" href="#1.2.3.-Example-of-Markov-Chain">&#182;</a></h3><p>Starting from $S_1$ = Class 1</p>
-<p>&lt;img src = "./image_files/student_MC.png" width = 500&gt;</p>
-
+<center><img src = "./image_files/student_MC.png" width = 600></center>
 </div>
 </div>
 </div>
@@ -13371,7 +13373,7 @@ $$\sum_{j \in S}p_{ij} = 1$$<ul>
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>[0, 1, 2, 4, 2, 4]
+<pre>[0, 1, 2, 3, 6, 6]
 </pre>
 </div>
 </div>
@@ -13407,7 +13409,7 @@ $$\sum_{j \in S}p_{ij} = 1$$<ul>
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>[&#39;C1&#39;, &#39;C2&#39;, &#39;C3&#39;, &#39;Pub&#39;, &#39;C3&#39;, &#39;Pub&#39;]
+<pre>[&#39;C1&#39;, &#39;C2&#39;, &#39;C3&#39;, &#39;Pass&#39;, &#39;Sleep&#39;, &#39;Sleep&#39;]
 </pre>
 </div>
 </div>
@@ -13422,30 +13424,25 @@ $$\sum_{j \in S}p_{ij} = 1$$<ul>
 <h2 id="1.3.-Chapman-Kolmogorov-Equation">1.3. Chapman-Kolmogorov Equation<a class="anchor-link" href="#1.3.-Chapman-Kolmogorov-Equation">&#182;</a></h2><ul>
 <li>(1-step transition probabilities) For a Markov chain on a finite state space, $S = \{ S_1, \cdots , S_N \}$, with transition probability matrix $P$ and initial distribution $\pi = \{ \pi_i^{0} \}$ (row vector) then the distribution of $X(1)$ is given by</li>
 </ul>
-<p>&lt;img src = "./image_files/CKE_01.png" width = 400&gt;</p>
-<ul>
+<center><img src = "./image_files/CKE_01.png" width = 400></center><ul>
 <li>(2-step transition probabilities) For a Markov chain on a finite state space, $S = \{ S_1, \cdots , S_N \}$, with transition probability matrix $P$ and initial distribution $\pi = \{ \pi_i^{0} \}$ (row vector) then the distribution of $X(2)$ is given by</li>
 </ul>
-<p><br>
-&lt;img src = "./image_files/CKE_02.png" width = 500&gt;
-<br></p>
+<p><br></p>
+<center><img src = "./image_files/CKE_02.png" width = 500></center><p><br></p>
 <ul>
 <li>(n-step transition probabilities) For a Markov chain on a finite state space, $S = \{ S_1, \cdots , S_N \}$, with transition probability matrix $P$ and initial distribution $\pi = \{ \pi_i^{0} \}$ (row vector) then the distribution of $X(n)$ is given by</li>
 </ul>
-<p><br>
-&lt;img src = "./image_files/CKE_03.png" width = 500&gt;
-<br></p>
+<p><br></p>
+<center><img src = "./image_files/CKE_03.png" width = 500></center><p><br></p>
 <ul>
 <li>$P^n$: n-step transition probabilities</li>
 </ul>
 <ul>
 <li>Key recursion</li>
 </ul>
-$$p_{ij}(n) = \sum_{k=1}^{N} p_{ik}(n-1) p_{kj}(1), \qquad i \rightarrow k \; \text{and}\; k \rightarrow j \;\text{imply}\; i \rightarrow j$$<p><br>
-&lt;img src = "./image_files/CKE_diagram.png" width = 400&gt;</p>
-<p><br>
-&lt;img src = "./image_files/chain_example.png" width = 600&gt;</p>
-
+$$p_{ij}(n) = \sum_{k=1}^{N} p_{ik}(n-1) p_{kj}(1), \qquad i \rightarrow k \; \text{and}\; k \rightarrow j \;\text{imply}\; i \rightarrow j$$<p><br></p>
+<center><img src = "./image_files/CKE_diagram.png" width = 400></center><p><br></p>
+<center><img src = "./image_files/chain_example.png" width = 600></center>
 </div>
 </div>
 </div>
@@ -13654,10 +13651,10 @@ $$\pi = \pi P$$<ul>
 
 
 
-<div id="90740d57-a1ac-4f7a-b958-d8867968cced"></div>
+<div id="cbdd2a4e-4cfb-4759-aef6-8ef555965061"></div>
 <div class="output_subarea output_javascript ">
 <script type="text/javascript">
-var element = $('#90740d57-a1ac-4f7a-b958-d8867968cced');
+var element = $('#cbdd2a4e-4cfb-4759-aef6-8ef555965061');
 $.getScript('https://kmahelona.github.io/ipython_notebook_goodies/ipython_notebook_toc.js')
 </script>
 </div>

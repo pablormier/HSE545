@@ -13117,7 +13117,7 @@ div#notebook {
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><br><br>
-&lt;font size = '6'&gt;<b>Kalman Filter</b>&lt;/font&gt;</p>
+<font size='6'><b>Kalman Filter</b></font><br><br></p>
 <p><br></p>
 <div class=pull-right>
 By Prof. Seungchul Lee<br>
@@ -13229,6 +13229,9 @@ $$$$\bar{x}_{k} - \bar{x}_{k-1} = \frac{x_{k-n+1} + x_{k-n+2} + \cdots +x_{k}}{n
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>with $n = 30$</p>
+<ul>
+<li>Download <a href="https://www.dropbox.com/s/cvfp5twa1ialdzn/SonarAlt.npy?dl=1">data</a></li>
+</ul>
 
 </div>
 </div>
@@ -13571,17 +13574,9 @@ $$
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="2.-Sensor-Fusion-(two-measured-observations)">2. Sensor Fusion (two measured observations)<a class="anchor-link" href="#2.-Sensor-Fusion-(two-measured-observations)">&#182;</a></h1><h2 id="2.1.-Estimate-true-location-with-two-GPSs">2.1. Estimate true location with two GPSs<a class="anchor-link" href="#2.1.-Estimate-true-location-with-two-GPSs">&#182;</a></h2><p>&lt;table style="border-style: hidden; border-collapse: collapse;" width = "96%"&gt; 
-    <tr style="border-style: hidden; border-collapse: collapse;">
-        <td width = 48% style="border-style: hidden; border-collapse: collapse;">
-<img src = "./image_files/twoGPS.png" width=300>
-        </td>
-        <td width = 48%>
-<img src = "./image_files/GraphicalGPS.png" width=300>
-        </td>
-    </tr>
-&lt;/table&gt;</p>
-<ul>
+<h1 id="2.-Sensor-Fusion-(two-measured-observations)">2. Sensor Fusion (two measured observations)<a class="anchor-link" href="#2.-Sensor-Fusion-(two-measured-observations)">&#182;</a></h1><h2 id="2.1.-Estimate-true-location-with-two-GPSs">2.1. Estimate true location with two GPSs<a class="anchor-link" href="#2.1.-Estimate-true-location-with-two-GPSs">&#182;</a></h2><p><br><br></p>
+<center><img src = "./image_files/twoGPS.png" width = 300></center><p><br><br></p>
+<center><img src = "./image_files/GraphicalGPS.png" width = 300></center><ul>
 <li>What is your educated guess of the location?<ul>
 <li>Maybe somewhere between $y_a$ and $y_b$</li>
 </ul>
@@ -13590,30 +13585,14 @@ $$
 <ul>
 <li>What if we know that two GPSs are identical (i.e., the same accuracy or uncertainty)</li>
 </ul>
-<p>&lt;table style="border-style: hidden; border-collapse: collapse;" width = "80%"&gt; 
-    <tr style="border-style: hidden; border-collapse: collapse;">
-        <td width = 48% style="border-style: hidden; border-collapse: collapse;">
-$$ \hat{x} = \frac{1}{2} y_A + \frac{1}{2} y_B $$
-        </td>
-        <td width = 48%>
-<img src = "./image_files/GPS_identical.png" width=300>
-        </td>
-    </tr>
-&lt;/table&gt;</p>
-<ul>
+<p><br></p>
+$$ \hat{x} = \frac{1}{2} y_A + \frac{1}{2} y_B $$<p><br></p>
+<center><img src = "./image_files/GPS_identical.png" width = 300></center><ul>
 <li>What if we know that GPS A is more accurate (or less uncertain) than GPS B?</li>
 </ul>
-<p>&lt;table style="border-style: hidden; border-collapse: collapse;" width = "80%"&gt; 
-    <tr style="border-style: hidden; border-collapse: collapse;">
-        &lt;td width = 48% style="border-style: hidden; border-collapse: collapse;"&gt;</p>
-<p><center>more towards $y_A$</center>
-        &lt;/td&gt;
-        &lt;td width = 48%&gt;
-&lt;img src = "./image_files/GPS_diff.png" width=300&gt;
-        &lt;/td&gt;
-    &lt;/tr&gt;
-&lt;/table&gt;</p>
-
+<p><br></p>
+<center>more towards $y_A$</center><p><br></p>
+<center><img src = "./image_files/GPS_diff.png" width = 300></center>
 </div>
 </div>
 </div>
@@ -13632,18 +13611,10 @@ $$
 E[\hat x] &amp;= \frac{\frac{1}{\sigma_A^2} y_A + \frac{1}{\sigma_B^2}y_B}{\frac{1}{\sigma_A^2} + \frac{1}{\sigma_B^2}}\\
 \text{var}[\hat x] &amp;= \frac{1}{\sigma_A^2} + \frac{1}{\sigma_B^2} &lt; \sigma_A^2, \;\sigma_B^2 \qquad \text{more accurate}
 \end{align*}
-$$<p>&lt;table style="border-style: hidden; border-collapse: collapse;" width = "96%"&gt; 
-    <tr style="border-style: hidden; border-collapse: collapse;">
-        <td width = 48% style="border-style: hidden; border-collapse: collapse;">
-<img src = "./image_files/dist_ident.png" width=300>
-        </td>
-        <td width = 48%>
-<img src = "./image_files/dist_diff.png" width=300>
-        </td>
-    </tr>
-&lt;/table&gt;</p>
-<h2 id="2.3.-Sensor-Fusion-in-2D">2.3. Sensor Fusion in 2D<a class="anchor-link" href="#2.3.-Sensor-Fusion-in-2D">&#182;</a></h2><p>&lt;img src = "./image_files/fusion_2D.png" width=300&gt;</p>
-
+$$<p><br></p>
+<center><img src = "./image_files/dist_ident.png" width=300></center><p><br></p>
+<center><img src = "./image_files/dist_diff.png" width=300></center><h2 id="2.3.-Sensor-Fusion-in-2D">2.3. Sensor Fusion in 2D<a class="anchor-link" href="#2.3.-Sensor-Fusion-in-2D">&#182;</a></h2><p><br></p>
+<center><img src = "./image_files/fusion_2D.png" width=300></center>
 </div>
 </div>
 </div>
@@ -13700,8 +13671,7 @@ $$p(z_t \mid x_t)$$</li>
 <li>Model $x_t$ with a Gaussian (mean and covariance)
 $$p(x_t) = \mathcal{N}(x_t, \Sigma_t)$$</li>
 </ul>
-<h2 id="3.2.-Bayesian-Filtering">3.2. Bayesian Filtering<a class="anchor-link" href="#3.2.-Bayesian-Filtering">&#182;</a></h2><p>&lt;img src = "./image_files/KF2.png" width=400&gt;</p>
-<ul>
+<h2 id="3.2.-Bayesian-Filtering">3.2. Bayesian Filtering<a class="anchor-link" href="#3.2.-Bayesian-Filtering">&#182;</a></h2><center><img src = "./image_files/KF2.png" width = 400></center><ul>
 <li>Apply linear dynamics
 $$
 \begin{align*}
@@ -13872,8 +13842,10 @@ $$
 \end{align*}
 $$<h2 id="4.1.-Bayesian-formualtion-and-multivariate-Gaussian-statistics">4.1. Bayesian formualtion and multivariate Gaussian statistics<a class="anchor-link" href="#4.1.-Bayesian-formualtion-and-multivariate-Gaussian-statistics">&#182;</a></h2><p>Suppose $x \sim N(\mu, \Sigma)$, and</p>
 $$ x = \begin{bmatrix} x_1 \\ x_2 \end{bmatrix} \quad \mu = \begin{bmatrix} \mu_1 \\ \mu_2 \end{bmatrix} \quad \Sigma = \begin{bmatrix} \Sigma_{11} &amp; \Sigma_{12} \\ \Sigma_{21} &amp; \Sigma_{22} \end{bmatrix}  $$<p>Then the conditional pdf of $x_1$ given $x_2 = y$ is Gaussian</p>
+<p><br></p>
 $$(x_1 \mid x_2 = y) = \mathcal{N}\left( \mu_1 + \Sigma_{12} \Sigma^{-1}_{22} \,(y-\mu_2),\; \Sigma_{11} - \Sigma_{12}\Sigma^{-1}_{22}\Sigma_{21} \right)$$<p><br>
 Look at the Kalman filter via conditional probability of Gaussian distributions, given a linear system</p>
+<p><br></p>
 $$
 \begin{align*}
 x_{t\mid t-1} &amp;= A x_{t-1\mid t-1} + \upsilon\\
@@ -13949,10 +13921,10 @@ $$
 
 
 
-<div id="e6f04df1-dd74-4d8f-97f1-ee5be6ae3b4e"></div>
+<div id="d8e4b7e7-09f1-4a47-aad7-2fc94998eee5"></div>
 <div class="output_subarea output_javascript ">
 <script type="text/javascript">
-var element = $('#e6f04df1-dd74-4d8f-97f1-ee5be6ae3b4e');
+var element = $('#d8e4b7e7-09f1-4a47-aad7-2fc94998eee5');
 $.getScript('https://kmahelona.github.io/ipython_notebook_goodies/ipython_notebook_toc.js')
 </script>
 </div>

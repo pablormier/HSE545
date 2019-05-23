@@ -13151,6 +13151,7 @@ $q_t \in \{S_1,S_2,\cdots,S_N\}$</p>
 <ul>
 <li>Any joint distribution can be factored into a series of conditional distributions</li>
 </ul>
+<p><br></p>
 $$p(q_0,q_1,\cdots,q_T ) = p(q_0) \; p(q_1 \mid q_0) \; p( q_2 \mid q_1 q_0 ) \; p( q_3 \mid q_2 q_1 q_0 ) \cdots$$<p><br></p>
 <center>Amost impossible to compute !!</center><p><br>
 $$p(q_0,q_1,\cdots,q_T ) = p(q_0) \; p(q_1 \mid q_0) \; p( q_2 \mid q_1 ) \; p( q_3 \mid q_2 ) \cdots$$
@@ -13167,6 +13168,7 @@ $$ p(q_{t+1} = s_j \mid q_t = s_i)  = p(q_{t+1} = s_j \mid q_t = s_i,\; \text{an
 <li>The state is a sufficient statistic of the future</li>
 </ul>
 <h3 id="1.2.1.-State-Transition-Matrix">1.2.1. State Transition Matrix<a class="anchor-link" href="#1.2.1.-State-Transition-Matrix">&#182;</a></h3><p>For a Markov state 𝑠 and successor state 𝑠′, the state transition probability is defined by</p>
+<p><br></p>
 $$ P_{ss'} = P\left[S_{t+1} = s' \mid S_t = s \right] $$<p>State transition matrix $P$ defines transition probabilities from all states $s$ to all successor states $s'$.</p>
 <p><img src = "./image_files/transitionmatrix.png" width = 250></p>
 <ul>
@@ -14043,16 +14045,19 @@ $$<ul>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="3.3.1.-Value-Function">3.3.1. Value Function<a class="anchor-link" href="#3.3.1.-Value-Function">&#182;</a></h3><p>State-value function</p>
+<h3 id="3.2.1.-Value-Function">3.2.1. Value Function<a class="anchor-link" href="#3.2.1.-Value-Function">&#182;</a></h3><p>State-value function</p>
 <ul>
 <li>The state-value function $\upsilon_{\pi}(s)$ of an MDP is the exptected return starting from state $s$, and then following policy $\pi$</li>
 </ul>
-$$\upsilon_{\pi}(s) = \mathbb{E} \left[G_t \mid S_t =s \right]$$<h3 id="3.3.2.-Bellman-Expectation-Equation">3.3.2. Bellman Expectation Equation<a class="anchor-link" href="#3.3.2.-Bellman-Expectation-Equation">&#182;</a></h3><ul>
+<p><br></p>
+$$\upsilon_{\pi}(s) = \mathbb{E} \left[G_t \mid S_t =s \right]$$<h3 id="3.2.2.-Bellman-Expectation-Equation">3.2.2. Bellman Expectation Equation<a class="anchor-link" href="#3.2.2.-Bellman-Expectation-Equation">&#182;</a></h3><ul>
 <li>Given the policy $\pi$, the state-value function can again be decomposed into immediate reward plus discounted value of successor state</li>
 </ul>
+<p><br></p>
 $$ \upsilon_{\pi}(s) = \mathbb{E}_{\pi}[ R_{t+1} + \gamma \upsilon_{\pi}(S_{t+1}) \mid S_t = s ] \quad \implies \quad \upsilon_{\pi} (s) = R(s) + \gamma \sum_{s' \in S} P_{s s'}^{\pi} \;\upsilon_{\pi} \left(s' \right)$$<ul>
 <li>The Bellman expectation equation can be expressed concisely in a matrix form,</li>
 </ul>
+<p><br></p>
 $$\upsilon_{\pi} = R + \gamma  \, P^{\pi} \,\upsilon_{\pi}  \quad \implies \quad \upsilon_{\pi} = (I - \gamma  \,P^{\pi})^{-1}R $$
 </div>
 </div>
@@ -14060,7 +14065,7 @@ $$\upsilon_{\pi} = R + \gamma  \, P^{\pi} \,\upsilon_{\pi}  \quad \implies \quad
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="3.3.3.-Two-examples">3.3.3. Two examples<a class="anchor-link" href="#3.3.3.-Two-examples">&#182;</a></h3><ul>
+<h3 id="3.2.3.-Two-examples">3.2.3. Two examples<a class="anchor-link" href="#3.2.3.-Two-examples">&#182;</a></h3><ul>
 <li>Given the policy 1, it is MRP</li>
 </ul>
 <p><img src = "./image_files/MDP_policy_01.png" width = 700></p>
@@ -14265,10 +14270,12 @@ $$\upsilon_{\pi} = R + \gamma  \, P^{\pi} \,\upsilon_{\pi}  \quad \implies \quad
 <h2 id="3.3.-Optimal-Policy">3.3. Optimal Policy<a class="anchor-link" href="#3.3.-Optimal-Policy">&#182;</a></h2><ul>
 <li>The optimal policy is the policy that achieves the highest value for every state</li>
 </ul>
+<p><br></p>
 $$\pi^*(s) = \arg\max_{\pi} \upsilon_{\pi}(s)$$<p>$\quad \;\;$and its optimal value function is written $\upsilon^*(s)$</p>
 <ul>
 <li>We can directly define the optimal value function using Bellman optimality equation</li>
 </ul>
+<p><br></p>
 $$\upsilon^* (s) = R(s) + \gamma \max_{a} \sum_{s' \in S} P_{s s'}^{a} \;\upsilon^* \left(s' \right)$$<p>$\quad \;\;$and optimal policy is simply the action that attains this max</p>
 $$\pi^*(s) = \arg\max_{a} \sum_{s' \in S}  P_{s s'}^{a} \, \upsilon^*_{\pi}(s')$$<h2 id="3.4.Value-iteration">3.4.Value iteration<a class="anchor-link" href="#3.4.Value-iteration">&#182;</a></h2><p>1) initialize an estimate for the value function arbitrarily</p>
 $$ v(s) \leftarrow 0 \quad \forall s \in S $$<p>2) Repeat, update</p>
@@ -14822,10 +14829,10 @@ $$\pi^*(s) = \arg\max_{a} \sum_{s' \in S}  P_{s s'}^{a} \, \upsilon_{\pi}(s')$$
 
 
 
-<div id="da78ab9b-2241-42b6-ba28-ce5371bbfe57"></div>
+<div id="138a99d2-e41e-4e3f-a423-959d94447a77"></div>
 <div class="output_subarea output_javascript ">
 <script type="text/javascript">
-var element = $('#da78ab9b-2241-42b6-ba28-ce5371bbfe57');
+var element = $('#138a99d2-e41e-4e3f-a423-959d94447a77');
 $.getScript('https://kmahelona.github.io/ipython_notebook_goodies/ipython_notebook_toc.js')
 </script>
 </div>

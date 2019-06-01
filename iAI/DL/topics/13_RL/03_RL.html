@@ -13152,7 +13152,7 @@ Industrial AI Lab at POSTECH
 <li><p>States encode all information of a system needed to determine how it will evolve when taking acitions, with system governed by the state transition probabilities</p>
 </li>
 </ul>
-$$ P(s_{t+1}\mid s_t, a_t)$$<p>$\quad \;\,$Note that transitions only depend on current state and action, not past states/actions (Markov assumption)</p>
+$$ P_{s_t s_{t+1}}^{a_t} = P(s_{t+1}\mid s_t, a_t)$$<p>$\quad \;\,$Note that transitions only depend on current state and action, not past states/actions (Markov assumption)</p>
 <ul>
 <li>Goal for an agent is to take actions that maximize expected reward.</li>
 </ul>
@@ -13165,7 +13165,7 @@ $$ P(s_{t+1}\mid s_t, a_t)$$<p>$\quad \;\,$Note that transitions only depend on 
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="1.1.-Formal-MDP-definition">1.1. Formal MDP definition<a class="anchor-link" href="#1.1.-Formal-MDP-definition">&#182;</a></h2><p>A Markov decision process is defined by:</p>
+<h2 id="1.1.-Formal-MDP-Definition">1.1. Formal MDP Definition<a class="anchor-link" href="#1.1.-Formal-MDP-Definition">&#182;</a></h2><p>A Markov decision process is defined by:</p>
 <ul>
 <li><p>A set of <em>states</em> $S$ (assumed for now to be discrete)</p>
 </li>
@@ -13174,7 +13174,7 @@ $$ P(s_{t+1}\mid s_t, a_t)$$<p>$\quad \;\,$Note that transitions only depend on 
 <li><p><em>Transition probabilites</em> $P$, which defined the probability distribution over next states given the current state and current action</p>
 </li>
 </ul>
-$$ P(S_{t+1} \mid S_t, A_t) $$<ul>
+$$ P(s_{t+1} \mid s_t, a_t) $$<ul>
 <li><p>Transitions only depend on the <em>current</em> state and action (Markov assumption)</p>
 </li>
 <li><p>A <em>reward</em> function $R:S \rightarrow \mathbb{R}$, mapping states to real numbers (can also define rewards over state/action pairs)</p>
@@ -13187,13 +13187,13 @@ $$ P(S_{t+1} \mid S_t, A_t) $$<ul>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="1.2.-Policies-and-value-functions">1.2. Policies and value functions<a class="anchor-link" href="#1.2.-Policies-and-value-functions">&#182;</a></h2><p>A <em>policy</em> is a mapping from states to actions $\pi: S \rightarrow A$ (can also define stochastic policeis)</p>
+<h2 id="1.2.-Policies-and-Value-Functions">1.2. Policies and Value Functions<a class="anchor-link" href="#1.2.-Policies-and-Value-Functions">&#182;</a></h2><p>A <em>policy</em> is a mapping from states to actions $\pi: S \rightarrow A$ (can also define stochastic policeis)</p>
 <p>A <em>value</em> function for a policy, written $V^{\pi}: S \rightarrow \mathbb{R}$ gives the exptected sum of discounted rewards when acting under that policy</p>
 <p><br></p>
 $$ V^{\pi}(s) = E\left[ \sum_{t=0}^{\infty} \gamma^t R(s_t) \mid s_0 = s, a_t = \pi(s_t), s_{t+1} \mid s_t, a_t \sim P\right] $$<p>where $\gamma &lt; 1$ is a <em>discount factor</em> (also formulations for finite horizion, infinite horizon average reward)</p>
 <p>Can also define value function recursively via the <strong>Bellman equation</strong></p>
 <p><br><br></p>
-$$ V^{\pi}(s) = R(s) + \gamma \sum_{s' \in S}P\left( P(s' \mid s, \pi(s)) \right)V^{\pi}(s') $$
+$$ V^{\pi}(s) = R(s) + \gamma \sum_{s' \in S}P\left( s' \mid s, \pi(s) \right)V^{\pi}(s') $$
 </div>
 </div>
 </div>
@@ -13201,15 +13201,15 @@ $$ V^{\pi}(s) = R(s) + \gamma \sum_{s' \in S}P\left( P(s' \mid s, \pi(s)) \right
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><font size='4'><b>Computing the policy value</b></font></p>
-<p>Let $\upsilon^{\pi} \in \mathbb{R}^{\lvert S \rvert}$ be a vector of values for each state, $r \in \mathbb{R}^{\lvert S \rvert}$ be a vector of rewards for each state</p>
+<p>Let $v^{\pi} \in \mathbb{R}^{\lvert S \rvert}$ be a vector of values for each state, $r \in \mathbb{R}^{\lvert S \rvert}$ be a vector of rewards for each state</p>
 <p>Let $P^{\pi} \in \mathbb{R}^{\lvert S \rvert \times \lvert S \rvert}$ be a matrix containing probabilities for each transition under policy $\pi$</p>
 <p><br></p>
 $$ P_{ij}^{\pi} = P\left( s_{t+1} = i \mid s_t = j, a_t = \pi(s_t)\right)$$<p>Then Bellman equation can be written in vector form as</p>
 <p><br></p>
 \begin{align*}
-\upsilon^{\pi} &amp;= r + \gamma P^{\pi} \upsilon^{\pi}\\
-(I - \gamma P^{\pi})\upsilon^{\pi} &amp; = r \\
-\upsilon^{\pi} &amp;= (I - \gamma P^{\pi})^{-1}r\\
+v^{\pi} &amp;= r + \gamma P^{\pi} v^{\pi}\\
+(I - \gamma P^{\pi})v^{\pi} &amp; = r \\
+v^{\pi} &amp;= (I - \gamma P^{\pi})^{-1}r\\
 \end{align*}<p><em>i.e.</em>, computing value for a policy requires solving a linear sytsem, but expensive</p>
 
 </div>
@@ -13224,9 +13224,9 @@ $$ P_{ij}^{\pi} = P\left( s_{t+1} = i \mid s_t = j, a_t = \pi(s_t)\right)$$<p>Th
 $$ \pi^* = \arg\max_{\pi} V^{\pi}(s)$$<p>and its value function is written $V^* = V^{\pi^*}$ (but there are an exponential number of policies, so this formulation is not very useful)</p>
 <p>Instead, we can directly define the optimal value function using the <strong>Bellman optimality equation</strong></p>
 <p><br></p>
-$$ V^*(s) = R(s) + \gamma \max_{a \in A} \sum_{s' \in S}P(s' \mid s,a) V^*(s') $$<p>and optimal policy is simply the action that attains this max</p>
+$$ V^*(s) = R(s) + \gamma \max_{a \in A} \sum_{s' \in S}P(s' \mid s,a) V^*(s') = R(s) + \gamma \max_{a \in A} \sum_{s' \in S}P_{ss'}^a V^*(s')$$<p>and optimal policy is simply the action that attains this max</p>
 <p><br></p>
-$$\pi^*(s) = \arg\max_{a} \sum_{s' \in S}P(s' \mid s,a) V^*(s')$$
+$$\pi^*(s) = \arg\max_{a} \sum_{s' \in S}P(s' \mid s,a) V^*(s') = \arg\max_{a} \sum_{s' \in S}P_{ss'}^a V^*(s')$$
 </div>
 </div>
 </div>
@@ -13370,7 +13370,7 @@ We can determine the value of a policy by solving a linear systems, or via the i
 $$ \hat{V}^{\pi}(s) \leftarrow R(s) + \gamma \sum_{s' \in S}P(s' \mid s,\pi(s)) \hat{V}^{\pi}(s'), \quad \forall s \in S $$<p>We can determine the value of <em>optimal</em> policy $V^*$ using a value iteration:</p>
 <p><br></p>
 $$ \hat{V}(s) \leftarrow R(s) + \gamma \max_{a \in A} \sum_{s' \in S}P(s' \mid s,a) \hat{V}(s'), \quad \forall s \in S $$<p><br>
-<font color='red'><b>How can we compute these quantities when $P$ and $R$ are unknown?</b></font></p>
+<font color='red'><b>How can we compute these quantities when $P$ is unknown?</b></font></p>
 <ul>
 <li><p>model-based RL</p>
 </li>
@@ -13749,10 +13749,10 @@ width="560" height="315" frameborder="0" allowfullscreen></iframe></center>
 
 
 
-<div id="8294bc47-b190-48d7-a7fb-313e0cdf9d02"></div>
+<div id="326272ad-8d06-43f3-bd0f-91d6b376ba5a"></div>
 <div class="output_subarea output_javascript ">
 <script type="text/javascript">
-var element = $('#8294bc47-b190-48d7-a7fb-313e0cdf9d02');
+var element = $('#326272ad-8d06-43f3-bd0f-91d6b376ba5a');
 $.getScript('https://kmahelona.github.io/ipython_notebook_goodies/ipython_notebook_toc.js')
 
 </script>

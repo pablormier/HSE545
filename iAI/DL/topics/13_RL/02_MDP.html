@@ -14003,7 +14003,7 @@ $$<h3 id="2.5.2.-Optimal-Policy">2.5.2. Optimal Policy<a class="anchor-link" hre
 </ul>
 $$\pi_{*}(s) = \arg\max_{\pi} v_{\pi}(s)$$<p>$\quad \;\;$and its optimal value function is written $v_{*}(s)$</p>
 <ul>
-<li>An optimal policy can be found by maximizing over $\pi_{*} (a \mid s)$</li>
+<li>An optimal policy can be found by maximizing over $q_{*} (s,a)$</li>
 </ul>
 $$\pi_{*} (a \mid s) = 
 \begin{cases}
@@ -14093,7 +14093,7 @@ $$\pi(s) \leftarrow \arg\max_{a} \sum_{s' \in S}P \left(s' \mid s,a \right) v_{\
 </li>
 </ul>
 <ul>
-<li><p>Policy iteration requires fewer iterations that value iteration, but each iteration requires solving a linear system instead of just applying Bellman opertor</p>
+<li><p>Policy iteration requires fewer iterations that value iteration, but each iteration requires solving a linear system instead of just applying Bellman operator</p>
 </li>
 <li><p>In practice, policy iteration is often faster, especially if the transition probabilities are structured (e.g., sparse) to make solution of linear system efficient</p>
 </li>
@@ -14835,10 +14835,10 @@ $$\sum_{s' \in S} p\left(s\ \mid s,a\right) \;v \left(s' \right)$$
 
 
 
-<div id="cf24c84d-dae2-441c-9097-a76291fee7ad"></div>
+<div id="1c60c75a-f082-4dba-9794-b1ef878c9c88"></div>
 <div class="output_subarea output_javascript ">
 <script type="text/javascript">
-var element = $('#cf24c84d-dae2-441c-9097-a76291fee7ad');
+var element = $('#1c60c75a-f082-4dba-9794-b1ef878c9c88');
 $.getScript('https://kmahelona.github.io/ipython_notebook_goodies/ipython_notebook_toc.js')
 
 </script>

@@ -13130,14 +13130,7 @@ Industrial AI Lab at POSTECH
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Table of Contents</p>
-<div id="toc"></div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
+<hr>
 <ul>
 <li><font color="red">Please submit the following files after today's class.</font><ul>
 <li>ipynb files</li>
@@ -13151,7 +13144,16 @@ Industrial AI Lab at POSTECH
 </ul>
 </li>
 </ul>
+<hr>
 
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Table of Contents</p>
+<div id="toc"></div>
 </div>
 </div>
 </div>
@@ -13176,7 +13178,7 @@ Industrial AI Lab at POSTECH
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><strong>[0]</strong> 페어링</p>
+<p><strong>[1]</strong> 페어링</p>
 
 </div>
 </div>
@@ -13186,7 +13188,9 @@ Industrial AI Lab at POSTECH
 <div class="prompt input_prompt">In [1]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">drone</span> <span class="o">=</span> <span class="n">CoDrone</span><span class="p">()</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">CoDrone.codrone</span> <span class="k">import</span> <span class="o">*</span>
+
+<span class="n">drone</span> <span class="o">=</span> <span class="n">CoDrone</span><span class="p">()</span>
 <span class="n">drone</span><span class="o">.</span><span class="n">pair</span><span class="p">(</span><span class="s1">'3218'</span><span class="p">)</span> 
 
 <span class="k">if</span> <span class="n">drone</span><span class="o">.</span><span class="n">isConnected</span><span class="p">():</span>
@@ -13201,7 +13205,7 @@ Industrial AI Lab at POSTECH
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><strong>[1]</strong> 이륙/착륙</p>
+<p><strong>[2]</strong> 이륙/착륙</p>
 
 </div>
 </div>
@@ -13212,6 +13216,7 @@ Industrial AI Lab at POSTECH
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">drone</span><span class="o">.</span><span class="n">takeoff</span><span class="p">()</span>
+
 <span class="n">drone</span><span class="o">.</span><span class="n">hover</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
 <span class="n">drone</span><span class="o">.</span><span class="n">land</span><span class="p">()</span>
 </pre></div>
@@ -13224,7 +13229,7 @@ Industrial AI Lab at POSTECH
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><strong>[2]</strong> 전진</p>
+<p><strong>[3]</strong> 전진</p>
 
 </div>
 </div>
@@ -13235,6 +13240,7 @@ Industrial AI Lab at POSTECH
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">drone</span><span class="o">.</span><span class="n">takeoff</span><span class="p">()</span>
+
 <span class="n">drone</span><span class="o">.</span><span class="n">go</span><span class="p">(</span><span class="n">Direction</span><span class="o">.</span><span class="n">FORWARD</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
 <span class="n">drone</span><span class="o">.</span><span class="n">land</span><span class="p">()</span>
 </pre></div>
@@ -13715,10 +13721,10 @@ Industrial AI Lab at POSTECH
 
 
 
-<div id="58c98799-81f3-4662-96cd-af17a07fad5c"></div>
+<div id="963d507a-35d0-4e72-b5ae-a7c96a8ae4cd"></div>
 <div class="output_subarea output_javascript ">
 <script type="text/javascript">
-var element = $('#58c98799-81f3-4662-96cd-af17a07fad5c');
+var element = $('#963d507a-35d0-4e72-b5ae-a7c96a8ae4cd');
 
 $.getScript('https://kmahelona.github.io/ipython_notebook_goodies/ipython_notebook_toc.js')
 

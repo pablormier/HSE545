@@ -2,7 +2,7 @@
 <html>
 <head><meta charset="utf-8">
 
-<title>02_DP</title>
+<title>02_DP_bk</title>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
@@ -13017,45 +13017,6 @@ ul.typeahead-list  > li > a.pull-right {
 .highlight .vm { color: #19177C } /* Name.Variable.Magic */
 .highlight .il { color: #666666 } /* Literal.Number.Integer.Long */
     </style>
-<style type="text/css">
-    
-/* Temporary definitions which will become obsolete with Notebook release 5.0 */
-.ansi-black-fg { color: #3E424D; }
-.ansi-black-bg { background-color: #3E424D; }
-.ansi-black-intense-fg { color: #282C36; }
-.ansi-black-intense-bg { background-color: #282C36; }
-.ansi-red-fg { color: #E75C58; }
-.ansi-red-bg { background-color: #E75C58; }
-.ansi-red-intense-fg { color: #B22B31; }
-.ansi-red-intense-bg { background-color: #B22B31; }
-.ansi-green-fg { color: #00A250; }
-.ansi-green-bg { background-color: #00A250; }
-.ansi-green-intense-fg { color: #007427; }
-.ansi-green-intense-bg { background-color: #007427; }
-.ansi-yellow-fg { color: #DDB62B; }
-.ansi-yellow-bg { background-color: #DDB62B; }
-.ansi-yellow-intense-fg { color: #B27D12; }
-.ansi-yellow-intense-bg { background-color: #B27D12; }
-.ansi-blue-fg { color: #208FFB; }
-.ansi-blue-bg { background-color: #208FFB; }
-.ansi-blue-intense-fg { color: #0065CA; }
-.ansi-blue-intense-bg { background-color: #0065CA; }
-.ansi-magenta-fg { color: #D160C4; }
-.ansi-magenta-bg { background-color: #D160C4; }
-.ansi-magenta-intense-fg { color: #A03196; }
-.ansi-magenta-intense-bg { background-color: #A03196; }
-.ansi-cyan-fg { color: #60C6C8; }
-.ansi-cyan-bg { background-color: #60C6C8; }
-.ansi-cyan-intense-fg { color: #258F8F; }
-.ansi-cyan-intense-bg { background-color: #258F8F; }
-.ansi-white-fg { color: #C5C1B4; }
-.ansi-white-bg { background-color: #C5C1B4; }
-.ansi-white-intense-fg { color: #A1A6B2; }
-.ansi-white-intense-bg { background-color: #A1A6B2; }
-
-.ansi-bold { font-weight: bold; }
-
-    </style>
 
 
 <style type="text/css">
@@ -13142,8 +13103,8 @@ Industrial AI Lab at POSTECH
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Table of Contents</p>
-<div id="toc"></div>
+<p></p><h1>Table of Contents<span class="tocSkip"></span></h1>
+<div class="toc"><ul class="toc-item"><li><span><a href="#1.-Fixed-Point-Iteration" data-toc-modified-id="1.-Fixed-Point-Iteration-1">1. Fixed-Point Iteration</a></span><ul class="toc-item"><li><span><a href="#1.1.-Numerical-approach" data-toc-modified-id="1.1.-Numerical-approach-1.1">1.1. Numerical approach</a></span></li><li><span><a href="#1.2.-System-of-Linear-Equations" data-toc-modified-id="1.2.-System-of-Linear-Equations-1.2">1.2. System of Linear Equations</a></span></li></ul></li><li><span><a href="#2.-Recursive-Algorithm" data-toc-modified-id="2.-Recursive-Algorithm-2">2. Recursive Algorithm</a></span><ul class="toc-item"><li><span><a href="#2.1.-foo-example" data-toc-modified-id="2.1.-foo-example-2.1">2.1. foo example</a></span></li><li><span><a href="#2.2.-Factorial-example" data-toc-modified-id="2.2.-Factorial-example-2.2">2.2. Factorial example</a></span></li></ul></li><li><span><a href="#3.-Dynamic-Programming" data-toc-modified-id="3.-Dynamic-Programming-3">3. Dynamic Programming</a></span><ul class="toc-item"><li><span><a href="#3.1.-Naive-Recursive-algorithm" data-toc-modified-id="3.1.-Naive-Recursive-algorithm-3.1">3.1. Naive Recursive algorithm</a></span></li><li><span><a href="#3.2.-Memorized-DP-algorithm" data-toc-modified-id="3.2.-Memorized-DP-algorithm-3.2">3.2. Memorized DP algorithm</a></span></li><li><span><a href="#3.3.-Examples" data-toc-modified-id="3.3.-Examples-3.3">3.3. Examples</a></span><ul class="toc-item"><li><span><a href="#3.3.1.-Fibonacci" data-toc-modified-id="3.3.1.-Fibonacci-3.3.1">3.3.1. Fibonacci</a></span></li><li><span><a href="#3.3.2.-Climbing-a-stair" data-toc-modified-id="3.3.2.-Climbing-a-stair-3.3.2">3.3.2. Climbing a stair</a></span></li><li><span><a href="#3.3.3.-Knapsack-problem-using-Dynamic-Programming-(DP)" data-toc-modified-id="3.3.3.-Knapsack-problem-using-Dynamic-Programming-(DP)-3.3.3">3.3.3. Knapsack problem using Dynamic Programming (DP)</a></span></li></ul></li></ul></li></ul></div>
 </div>
 </div>
 </div>
@@ -14213,7 +14174,7 @@ $$<h2 id="3.1.-Naive-Recursive-algorithm">3.1. Naive Recursive algorithm<a class
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="3.4.-Examples">3.4. Examples<a class="anchor-link" href="#3.4.-Examples">¶</a></h2><h3 id="3.4.1.-Fibonacci">3.4.1. Fibonacci<a class="anchor-link" href="#3.4.1.-Fibonacci">¶</a></h3>
+<h2 id="3.3.-Examples">3.3. Examples<a class="anchor-link" href="#3.3.-Examples">¶</a></h2><h3 id="3.3.1.-Fibonacci">3.3.1. Fibonacci<a class="anchor-link" href="#3.3.1.-Fibonacci">¶</a></h3>
 </div>
 </div>
 </div>
@@ -14225,10 +14186,7 @@ $$<h2 id="3.1.-Naive-Recursive-algorithm">3.1. Naive Recursive algorithm<a class
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># naive Fibonacci</span>
 
 <span class="k">def</span> <span class="nf">fib</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
-    <span class="k">if</span> <span class="n">n</span> <span class="o">&lt;=</span> <span class="mi">2</span><span class="p">:</span>
-        <span class="k">return</span> <span class="mi">1</span>
-    <span class="k">else</span><span class="p">:</span>
-        <span class="k">return</span> <span class="n">fib</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">fib</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">2</span><span class="p">)</span>    
+<span class="c1"># your code here</span>
 </pre></div>
 
     </div>
@@ -14277,16 +14235,7 @@ $$<h2 id="3.1.-Naive-Recursive-algorithm">3.1. Naive Recursive algorithm<a class
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Memorized DP Fibonacci</span>
 
 <span class="k">def</span> <span class="nf">mfib</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
-    <span class="k">global</span> <span class="n">memo</span>
-    
-    <span class="k">if</span> <span class="n">memo</span><span class="p">[</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
-        <span class="k">return</span> <span class="n">memo</span><span class="p">[</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
-        
-    <span class="k">elif</span> <span class="n">n</span> <span class="o">&lt;=</span> <span class="mi">2</span><span class="p">:</span>
-        <span class="k">return</span> <span class="mi">1</span>
-    <span class="k">else</span><span class="p">:</span>
-        <span class="n">memo</span><span class="p">[</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">mfib</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">mfib</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">2</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">memo</span><span class="p">[</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+<span class="c1"># your code here</span>
 </pre></div>
 
     </div>
@@ -14432,7 +14381,7 @@ $$<h2 id="3.1.-Naive-Recursive-algorithm">3.1. Naive Recursive algorithm<a class
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="3.4.2.-Climbing-a-stair">3.4.2. Climbing a stair<a class="anchor-link" href="#3.4.2.-Climbing-a-stair">¶</a></h3><p>You are climbing a stair case. Each time you can either make 1 step, 2 steps, or 3 steps. How many distinct ways can you climb if the stairs has $n = 30$ steps?</p>
+<h3 id="3.3.2.-Climbing-a-stair">3.3.2. Climbing a stair<a class="anchor-link" href="#3.3.2.-Climbing-a-stair">¶</a></h3><p>You are climbing a stair case. Each time you can either make 1 step, 2 steps, or 3 steps. How many distinct ways can you climb if the stairs has $n = 30$ steps?</p>
 
 </div>
 </div>
@@ -14445,21 +14394,7 @@ $$<h2 id="3.1.-Naive-Recursive-algorithm">3.1. Naive Recursive algorithm<a class
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 
 <span class="k">def</span> <span class="nf">stair</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
-    <span class="k">global</span> <span class="n">memo</span>
-    
-    <span class="k">if</span> <span class="n">memo</span><span class="p">[</span><span class="n">n</span><span class="p">]</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
-        <span class="n">m</span> <span class="o">=</span> <span class="n">memo</span><span class="p">[</span><span class="n">n</span><span class="p">]</span>
-    <span class="k">elif</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
-        <span class="n">m</span> <span class="o">=</span> <span class="mi">1</span>
-    <span class="k">elif</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
-        <span class="n">m</span> <span class="o">=</span> <span class="mi">2</span>
-    <span class="k">elif</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">3</span><span class="p">:</span>
-        <span class="n">m</span> <span class="o">=</span> <span class="mi">4</span>
-    <span class="k">else</span><span class="p">:</span>
-        <span class="n">m</span> <span class="o">=</span> <span class="n">stair</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">stair</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="n">stair</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">3</span><span class="p">)</span>
-        
-    <span class="n">memo</span><span class="p">[</span><span class="n">n</span><span class="p">]</span> <span class="o">=</span> <span class="n">m</span>
-    <span class="k">return</span> <span class="n">m</span>
+<span class="c1"># your code here</span>
 </pre></div>
 
     </div>
@@ -14506,7 +14441,7 @@ $$<h2 id="3.1.-Naive-Recursive-algorithm">3.1. Naive Recursive algorithm<a class
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="3.4.3.-Knapsack-problem-using-Dynamic-Programming-(DP)">3.4.3. Knapsack problem using Dynamic Programming (DP)<a class="anchor-link" href="#3.4.3.-Knapsack-problem-using-Dynamic-Programming-(DP)">¶</a></h3><p>From MIT's <a href="https://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-00-introduction-to-computer-science-and-programming-fall-2008/">Introduction to Computer Science and Programming</a></p>
+<h3 id="3.3.3.-Knapsack-problem-using-Dynamic-Programming-(DP)">3.3.3. Knapsack problem using Dynamic Programming (DP)<a class="anchor-link" href="#3.3.3.-Knapsack-problem-using-Dynamic-Programming-(DP)">¶</a></h3><p>From MIT's <a href="https://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-00-introduction-to-computer-science-and-programming-fall-2008/">Introduction to Computer Science and Programming</a></p>
 <p><strong>Knapsack problem</strong></p>
 <ul>
 <li><p>burglar (or thief) can carry at most 20 kg (i.e., maximum capacity = 20)</p>
@@ -14576,34 +14511,7 @@ Suppose we have the following function:</p>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">chooseBest</span><span class="p">(</span><span class="n">items</span><span class="p">,</span><span class="n">maxWeight</span><span class="p">):</span>
-    <span class="k">global</span> <span class="n">weights</span>
-    <span class="k">global</span> <span class="n">values</span>
-    
-    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">items</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">maxWeight</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span>
-        <span class="n">value</span> <span class="o">=</span> <span class="mi">0</span>
-        <span class="n">taken</span> <span class="o">=</span> <span class="p">[]</span>
-        <span class="k">return</span> <span class="n">value</span><span class="p">,</span> <span class="n">taken</span>
-    <span class="k">else</span><span class="p">:</span>
-        <span class="n">first</span> <span class="o">=</span> <span class="n">items</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-        <span class="n">w</span> <span class="o">=</span> <span class="n">weights</span><span class="p">[</span><span class="n">first</span><span class="p">]</span>
-        <span class="n">rest</span> <span class="o">=</span> <span class="n">items</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span>
-        
-        <span class="c1"># do not take the first item</span>
-        <span class="n">v1</span><span class="p">,</span><span class="n">t1</span> <span class="o">=</span> <span class="n">chooseBest</span><span class="p">(</span><span class="n">rest</span><span class="p">,</span><span class="n">maxWeight</span><span class="p">)</span>
-        
-        <span class="c1"># do take the first item</span>
-        <span class="n">v2</span><span class="p">,</span><span class="n">t2</span> <span class="o">=</span> <span class="n">chooseBest</span><span class="p">(</span><span class="n">rest</span><span class="p">,</span><span class="n">maxWeight</span> <span class="o">-</span> <span class="n">w</span><span class="p">)</span>
-        <span class="n">v2</span> <span class="o">=</span> <span class="n">v2</span> <span class="o">+</span> <span class="n">values</span><span class="p">[</span><span class="n">first</span><span class="p">]</span>
-        <span class="n">t2</span> <span class="o">=</span> <span class="p">[</span><span class="n">first</span><span class="p">]</span> <span class="o">+</span> <span class="n">t2</span>
-        
-        <span class="k">if</span> <span class="n">maxWeight</span> <span class="o">-</span> <span class="n">w</span> <span class="o">&gt;=</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">v2</span> <span class="o">&gt;=</span> <span class="n">v1</span><span class="p">:</span>
-            <span class="n">value</span> <span class="o">=</span> <span class="n">v2</span>
-            <span class="n">taken</span> <span class="o">=</span> <span class="n">t2</span>
-        <span class="k">else</span><span class="p">:</span>
-            <span class="n">value</span> <span class="o">=</span> <span class="n">v1</span>
-            <span class="n">taken</span> <span class="o">=</span> <span class="n">t1</span>
-        
-        <span class="k">return</span> <span class="n">value</span><span class="p">,</span> <span class="n">taken</span>              
+<span class="c1"># Write your code here        </span>
 </pre></div>
 
     </div>
@@ -14643,45 +14551,6 @@ Suppose we have the following function:</p>
 
 <div class="output_text output_subarea output_execute_result">
 <pre>(275, [0, 1, 4])</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [46]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%</span><span class="nx">javascript</span>
-<span class="nx">$</span><span class="p">.</span><span class="nx">getScript</span><span class="p">(</span><span class="s1">'https://kmahelona.github.io/ipython_notebook_goodies/ipython_notebook_toc.js'</span><span class="p">)</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-
-
-
-<div id="9d5fbc64-d76b-416a-9416-068880f2923c"></div>
-<div class="output_subarea output_javascript ">
-<script type="text/javascript">
-var element = $('#9d5fbc64-d76b-416a-9416-068880f2923c');
-$.getScript('https://kmahelona.github.io/ipython_notebook_goodies/ipython_notebook_toc.js')
-</script>
 </div>
 
 </div>

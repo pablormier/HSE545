@@ -14012,10 +14012,7 @@ Industrial AI Lab at POSTECH
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">input_data_matrix</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asmatrix</span><span class="p">(</span><span class="n">input_data</span><span class="p">)</span>
 
-<span class="sd">'''</span>
-<span class="sd">Find the theta using least square solution </span>
-<span class="sd">'''</span>
-
+<span class="n">theta</span> <span class="o">=</span> <span class="p">(</span><span class="n">input_data_matrix</span><span class="o">.</span><span class="n">T</span><span class="o">*</span><span class="n">input_data_matrix</span><span class="p">)</span><span class="o">.</span><span class="n">I</span><span class="o">*</span><span class="n">input_data_matrix</span><span class="o">.</span><span class="n">T</span><span class="o">*</span><span class="n">output_data</span>
 <span class="n">y_hat</span> <span class="o">=</span> <span class="n">input_data_matrix</span><span class="o">*</span><span class="n">theta</span>
 
 <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span>
@@ -14075,13 +14072,13 @@ Industrial AI Lab at POSTECH
 <span class="c1"># step size</span>
 <span class="n">alpha_init</span> <span class="o">=</span> <span class="mf">0.000000000001</span>
 
-<span class="sd">'''</span>
-<span class="sd">Find the theta using Gradient Descent </span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">200000</span><span class="p">)</span> <span class="p">:</span>
 
-
-
-
-<span class="sd">'''</span>
+    <span class="k">if</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">10000</span> <span class="p">:</span>
+        <span class="n">alpha</span> <span class="o">=</span> <span class="n">alpha_init</span> <span class="o">-</span> <span class="n">alpha_init</span> <span class="o">*</span> <span class="mf">0.00001</span> <span class="o">*</span> <span class="n">i</span>
+    
+    <span class="n">df</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="p">(</span><span class="n">input_data_matrix</span><span class="o">.</span><span class="n">T</span> <span class="o">*</span> <span class="n">input_data_matrix</span> <span class="o">*</span> <span class="n">theta</span> <span class="o">-</span> <span class="n">input_data_matrix</span><span class="o">.</span><span class="n">T</span> <span class="o">*</span> <span class="n">output_data</span><span class="p">)</span>
+    <span class="n">theta</span> <span class="o">=</span> <span class="n">theta</span> <span class="o">-</span> <span class="n">alpha</span> <span class="o">*</span> <span class="n">df</span>
     
 <span class="nb">print</span><span class="p">(</span><span class="s2">"fitted theta : "</span><span class="p">,</span> <span class="n">theta</span><span class="o">.</span><span class="n">reshape</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">]))</span>
 </pre></div>
@@ -14270,7 +14267,7 @@ theta1 :  [[ 1.11294760e+00  8.86174513e-02 -1.06076025e-01  3.20254745e-04
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">lamb</span> <span class="o">=</span> <span class="mi">1</span>
 
 <span class="n">theta2</span> <span class="o">=</span> <span class="n">cvx</span><span class="o">.</span><span class="n">Variable</span><span class="p">([</span><span class="mi">6</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
-<span class="n">obj</span> <span class="o">=</span> <span class="n">cvx</span><span class="o">.</span><span class="n">Minimize</span><span class="p">(</span><span class="n">cvx</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">input_data</span> <span class="o">*</span> <span class="n">theta2</span> <span class="o">-</span> <span class="n">output_data</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="o">??</span>
+<span class="n">obj</span> <span class="o">=</span> <span class="n">cvx</span><span class="o">.</span><span class="n">Minimize</span><span class="p">(</span><span class="n">cvx</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">input_data</span> <span class="o">*</span> <span class="n">theta2</span> <span class="o">-</span> <span class="n">output_data</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="n">lamb</span> <span class="o">*</span> <span class="n">cvx</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">theta2</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
 <span class="n">prob</span> <span class="o">=</span> <span class="n">cvx</span><span class="o">.</span><span class="n">Problem</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="p">[])</span>
 <span class="n">result</span> <span class="o">=</span> <span class="n">prob</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="n">solver</span> <span class="o">=</span> <span class="s1">'SCS'</span><span class="p">)</span>
 
@@ -14365,7 +14362,7 @@ theta1 :  [[ 1.11294760e+00  8.86174513e-02 -1.06076025e-01  3.20254745e-04
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">lamb</span> <span class="o">=</span> <span class="mi">1</span>
 
 <span class="n">theta3</span> <span class="o">=</span> <span class="n">cvx</span><span class="o">.</span><span class="n">Variable</span><span class="p">([</span><span class="mi">6</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
-<span class="n">obj</span> <span class="o">=</span> <span class="n">cvx</span><span class="o">.</span><span class="n">Minimize</span><span class="p">(</span><span class="n">cvx</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">input_data</span> <span class="o">*</span> <span class="n">theta3</span> <span class="o">-</span> <span class="n">output_data</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="o">??</span>
+<span class="n">obj</span> <span class="o">=</span> <span class="n">cvx</span><span class="o">.</span><span class="n">Minimize</span><span class="p">(</span><span class="n">cvx</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">input_data</span> <span class="o">*</span> <span class="n">theta3</span> <span class="o">-</span> <span class="n">output_data</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="n">lamb</span> <span class="o">*</span> <span class="n">cvx</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">theta3</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
 <span class="n">prob</span> <span class="o">=</span> <span class="n">cvx</span><span class="o">.</span><span class="n">Problem</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="p">[])</span>
 <span class="n">result</span> <span class="o">=</span> <span class="n">prob</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="n">solver</span> <span class="o">=</span> <span class="s1">'SCS'</span><span class="p">)</span>
 
@@ -14638,7 +14635,7 @@ c:\users\user\appdata\local\programs\python\python36\lib\site-packages\ipykernel
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">linear_model</span>
 
 <span class="n">reg</span> <span class="o">=</span> <span class="n">linear_model</span><span class="o">.</span><span class="n">LinearRegression</span><span class="p">()</span>
-<span class="n">reg</span><span class="o">.</span><span class="err">??</span><span class="p">(</span><span class="n">input_data</span><span class="p">,</span> <span class="n">output_data</span><span class="p">)</span>
+<span class="n">reg</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">input_data</span><span class="p">,</span> <span class="n">output_data</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -14728,7 +14725,7 @@ c:\users\user\appdata\local\programs\python\python36\lib\site-packages\ipykernel
 <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="sa">r</span><span class="s1">'Ridge: magnitude of $\theta$'</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">15</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="sa">r</span><span class="s1">'$\theta$'</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">15</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">'magnitude'</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">15</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="err">??</span><span class="p">(</span><span class="n">ridge_coef</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">stem</span><span class="p">(</span><span class="n">ridge_coef</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 
@@ -14821,7 +14818,7 @@ c:\users\user\appdata\local\programs\python\python36\lib\site-packages\ipykernel
 <div class="prompt input_prompt">In [27]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">lasso</span> <span class="o">=</span> <span class="n">linear_model</span><span class="o">.</span><span class="err">??</span><span class="p">(</span><span class="n">alpha</span><span class="o">=</span><span class="mf">1.0</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">lasso</span> <span class="o">=</span> <span class="n">linear_model</span><span class="o">.</span><span class="n">Lasso</span><span class="p">(</span><span class="n">alpha</span><span class="o">=</span><span class="mf">1.0</span><span class="p">)</span>
 <span class="n">lasso</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">input_data</span><span class="p">,</span> <span class="n">output_data</span><span class="p">)</span>
 
 <span class="n">lasso_coef</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">vstack</span><span class="p">([</span><span class="n">lasso</span><span class="o">.</span><span class="n">intercept_</span><span class="o">.</span><span class="n">reshape</span><span class="p">([</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]),</span> <span class="n">lasso</span><span class="o">.</span><span class="n">coef_</span><span class="o">.</span><span class="n">reshape</span><span class="p">([</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">])])</span>
@@ -15444,13 +15441,13 @@ theta2 :  [[ -5.09556468  -5.09556271  -5.09556271  -5.09556271  -5.09556271
 <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="sa">r</span><span class="s1">'Origin data: magnitude of $\theta$'</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">15</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="sa">r</span><span class="s1">'$\theta$'</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">15</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">'magnitude'</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">15</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="err">??</span><span class="p">(</span><span class="n">theta1</span><span class="o">.</span><span class="n">value</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">stem</span><span class="p">(</span><span class="n">theta1</span><span class="o">.</span><span class="n">value</span><span class="p">)</span>
 
 <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="sa">r</span><span class="s1">'Normalized data: magnitude of $\theta$'</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">15</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="sa">r</span><span class="s1">'$\theta$'</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">15</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">'magnitude'</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">15</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="err">??</span><span class="p">(</span><span class="n">theta2</span><span class="o">.</span><span class="n">value</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">stem</span><span class="p">(</span><span class="n">theta2</span><span class="o">.</span><span class="n">value</span><span class="p">)</span>
 
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>

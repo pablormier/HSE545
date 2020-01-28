@@ -13130,8 +13130,8 @@ Industrial AI Lab at POSTECH
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Table of Contents</p>
-<div id="toc"></div>
+<p></p><h1>Table of Contents<span class="tocSkip"></span></h1>
+<div class="toc"><ul class="toc-item"><li><span><a href="#1.-Classification" data-toc-modified-id="1.-Classification-1">1. Classification</a></span></li><li><span><a href="#2.-Perceptron" data-toc-modified-id="2.-Perceptron-2">2. Perceptron</a></span><ul class="toc-item"><li><span><a href="#2.1.-Perceptron-Algorithm" data-toc-modified-id="2.1.-Perceptron-Algorithm-2.1">2.1. Perceptron Algorithm</a></span></li><li><span><a href="#2.2.-Iterations-of-Perceptron" data-toc-modified-id="2.2.-Iterations-of-Perceptron-2.2">2.2. Iterations of Perceptron</a></span></li><li><span><a href="#2.3.-Perceptron-loss-function" data-toc-modified-id="2.3.-Perceptron-loss-function-2.3">2.3. Perceptron loss function</a></span></li></ul></li><li><span><a href="#3.-Perceptron-in-Python" data-toc-modified-id="3.-Perceptron-in-Python-3">3. Perceptron in Python</a></span></li><li><span><a href="#4.-Perceptron-using-Scikit-Learn" data-toc-modified-id="4.-Perceptron-using-Scikit-Learn-4">4. Perceptron using Scikit-Learn</a></span></li><li><span><a href="#5.-The-Best-Hyperplane-Separator?" data-toc-modified-id="5.-The-Best-Hyperplane-Separator?-5">5. The Best Hyperplane Separator?</a></span></li></ul></div>
 </div>
 </div>
 </div>
@@ -13401,11 +13401,9 @@ y = \begin{bmatrix}y^{(1)} \\ y^{(2)} \\ y^{(3)}\\ \vdots \\ y^{(m)} \end{bmatri
 <div class="prompt input_prompt">In [3]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="s2">"Labeling</span>
-
-
-
-<span class="s2">"</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">C1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">g</span> <span class="o">&gt;=</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">C0</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">g</span> <span class="o">&lt;</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">C1</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -13439,11 +13437,10 @@ y = \begin{bmatrix}y^{(1)} \\ y^{(2)} \\ y^{(3)}\\ \vdots \\ y^{(m)} \end{bmatri
 <div class="prompt input_prompt">In [4]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="s2">"Labeling Check</span>
-
-
-
-<span class="s2">"</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">C1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">g</span> <span class="o">&gt;=</span> <span class="mi">1</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">C0</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">g</span> <span class="o">&lt;</span> <span class="o">-</span><span class="mi">1</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">C1</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">C0</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -13879,7 +13876,7 @@ $$
 <div class="prompt input_prompt">In [16]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="s2">"x1p, x2p</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="s2">"x1p, x2p(w[1,0]=w1, w[2,0]=w2, w[0,0]=w0)</span>
 
 
 
@@ -13950,46 +13947,6 @@ $$
 
 </div>
 </div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [17]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%</span><span class="nx">javascript</span>
-<span class="nx">$</span><span class="p">.</span><span class="nx">getScript</span><span class="p">(</span><span class="s1">'https://kmahelona.github.io/ipython_notebook_goodies/ipython_notebook_toc.js'</span><span class="p">)</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-
-
-
-<div id="53b2972d-2fd9-48e2-8195-6c3e37cc2d5a"></div>
-<div class="output_subarea output_javascript ">
-<script type="text/javascript">
-var element = $('#53b2972d-2fd9-48e2-8195-6c3e37cc2d5a');
-$.getScript('https://kmahelona.github.io/ipython_notebook_goodies/ipython_notebook_toc.js')
-
-</script>
-</div>
-
-</div>
-
-</div>
-</div>
-
 </div>
     </div>
   </div>
